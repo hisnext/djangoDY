@@ -5,4 +5,7 @@ from django.shortcuts import render
 # Create your views here.
 def index(request):
     msg = 'Index page'
-    return render(request, 'index.html', {'message': msg})
+    renderUrl = render(request, 'index.html', {'message': msg}) 
+    if request.path == '/single.html':
+        renderUrl = render(request, 'single.html', {'message': msg})
+    return renderUrl 
